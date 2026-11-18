@@ -54,7 +54,7 @@ jobs:
         run: pnpm audit --audit-level=high
 
       - name: Cache Next.js build
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .next/cache
           key: next-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'next.config.mjs') }}
