@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  allowedDevOrigins: ["192.168.3.48"],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -10,6 +8,6 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "standalone",
-}
+};
 
-export default nextConfig
+export default nextConfig;

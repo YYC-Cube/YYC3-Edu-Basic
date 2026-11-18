@@ -1,11 +1,10 @@
-
 ---
 file: dev-guide.md
 description: YYC³ 智能教育平台开发者指南 — 环境配置、开发流程、最佳实践全览
 author: YanYuCloudCube Team <admin@0379.email>
-version: v2.0.0
+version: v2.1.0
 created: 2026-07-12
-updated: 2026-07-12
+updated: 2026-11-18
 status: stable
 tags: [guide],[development],[workflow]
 category: guide
@@ -18,14 +17,14 @@ complexity: intermediate
 
 <div align="center">
 
-![Next.js](https://img.shields.io/badge/Next.js-15.5-000000?logo=next.js&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-16.4-000000?logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Radix UI](https://img.shields.io/badge/Radix_UI-latest-FF4B4B?logo=radixui&logoColor=white)
 ![pnpm](https://img.shields.io/badge/pnpm-10.x-F69220?logo=pnpm&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-3.2-6E9F18?logo=vitest&logoColor=white)
-![Storybook](https://img.shields.io/badge/Storybook-9.1-FF4785?logo=storybook&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-5.1-6E9F18?logo=vitest&logoColor=white)
+![Storybook](https://img.shields.io/badge/Storybook-10.6-FF4785?logo=storybook&logoColor=white)
 
 </div>
 
@@ -47,14 +46,14 @@ complexity: intermediate
 
 ### 1.1 必需工具
 
-| 工具 | 版本要求 | 用途 | 安装方式 |
-|------|---------|------|----------|
-| **Node.js** | >= 18.18 | JavaScript 运行时 | [官网下载](https://nodejs.org/) / `nvm install 18` |
-| **pnpm** | >= 9.0 (推荐 10.x) | 包管理器 | `npm install -g pnpm` |
-| **Git** | >= 2.40 | 版本控制 | [官网下载](https://git-scm.com/) |
-| **VS Code** | 最新 | IDE | [官网下载](https://code.visualstudio.com/) |
-| **Docker** | >= 24.0 | 容器化开发 | [Docker Desktop](https://www.docker.com/products/docker-desktop/) |
-| **Ollama** | 最新 | 本地 AI 推理 | [ollama.ai](https://ollama.ai/) |
+| 工具        | 版本要求              | 用途              | 安装方式                                                          |
+| ----------- | --------------------- | ----------------- | ----------------------------------------------------------------- |
+| **Node.js** | >= 20.9               | JavaScript 运行时 | [官网下载](https://nodejs.org/) / `nvm install 22`                |
+| **pnpm**    | >= 10.0 (推荐 10.17+) | 包管理器          | `corepack enable && corepack prepare pnpm@10.17.0 --activate`     |
+| **Git**     | >= 2.40               | 版本控制          | [官网下载](https://git-scm.com/)                                  |
+| **VS Code** | 最新                  | IDE               | [官网下载](https://code.visualstudio.com/)                        |
+| **Docker**  | >= 24.0               | 容器化开发        | [Docker Desktop](https://www.docker.com/products/docker-desktop/) |
+| **Ollama**  | 最新                  | 本地 AI 推理      | [ollama.ai](https://ollama.ai/)                                   |
 
 ### 1.2 VS Code 推荐插件
 
@@ -124,16 +123,16 @@ pnpm build        # 生产构建
 
 ### 2.2 核心目录职责
 
-| 目录 | 职责 | 规范 |
-|------|------|------|
-| `app/` | Next.js 14+ App Router 路由页面 | 文件即路由，`page.tsx` 为页面入口 |
-| `app/api/` | API 路由 | RESTful 风格，`route.ts` 为接口文件 |
-| `components/ui/` | shadcn/ui 基础 UI 组件 | 无状态纯展示，按原子设计分类 |
-| `components/` | 业务组件 | PascalCase 命名，单一职责 |
-| `hooks/` | 自定义 Hooks | `useXxx` 命名，关注点分离 |
-| `lib/` | 工具函数/服务 | 纯函数优先，无副作用 |
-| `config/` | 应用配置 | 环境变量驱动，可分环境 |
-| `public/` | 静态资源 | SVG/PNG 图标、字体文件 |
+| 目录             | 职责                           | 规范                                |
+| ---------------- | ------------------------------ | ----------------------------------- |
+| `app/`           | Next.js 16 App Router 路由页面 | 文件即路由，`page.tsx` 为页面入口   |
+| `app/api/`       | API 路由                       | RESTful 风格，`route.ts` 为接口文件 |
+| `components/ui/` | shadcn/ui 基础 UI 组件         | 无状态纯展示，按原子设计分类        |
+| `components/`    | 业务组件                       | PascalCase 命名，单一职责           |
+| `hooks/`         | 自定义 Hooks                   | `useXxx` 命名，关注点分离           |
+| `lib/`           | 工具函数/服务                  | 纯函数优先，无副作用                |
+| `config/`        | 应用配置                       | 环境变量驱动，可分环境              |
+| `public/`        | 静态资源                       | SVG/PNG 图标、字体文件              |
 
 ---
 
@@ -204,19 +203,19 @@ gitGraph
 feat(ai): 新增 DeepSeek 模型对话接口
 fix(ui): 修复 Dialog 组件在移动端关闭异常
 docs(readme): 更新技术栈徽章与架构图
-deps: 升级 next@15.5.20 react@19.2.7
+deps: 升级 next@16.4.6 react@19.2.7
 ```
 
 ### 3.3 分支策略
 
-| 分支 | 用途 | 来源 | 合并到 |
-|------|------|------|--------|
-| `main` | 生产分支 | - | - |
-| `develop` | 开发主线 | `main` | `main` |
-| `feature/*` | 功能开发 | `develop` | `develop` |
-| `bugfix/*` | 缺陷修复 | `develop` | `develop` |
+| 分支        | 用途     | 来源      | 合并到             |
+| ----------- | -------- | --------- | ------------------ |
+| `main`      | 生产分支 | -         | -                  |
+| `develop`   | 开发主线 | `main`    | `main`             |
+| `feature/*` | 功能开发 | `develop` | `develop`          |
+| `bugfix/*`  | 缺陷修复 | `develop` | `develop`          |
 | `release/*` | 发布准备 | `develop` | `main` + `develop` |
-| `hotfix/*` | 紧急修复 | `main` | `main` + `develop` |
+| `hotfix/*`  | 紧急修复 | `main`    | `main` + `develop` |
 
 ---
 
@@ -243,13 +242,13 @@ deps: 升级 next@15.5.20 react@19.2.7
 
 ### 4.2 命名规范
 
-| 类别 | 规范 | 示例 |
-|------|------|------|
-| 组件文件 | PascalCase | `DataMonitoring.tsx` |
-| Hook 文件 | camelCase | `useI18n.ts` |
-| 工具函数 | camelCase | `formatDate.ts` |
-| 样式文件 | kebab-case | `global-styles.css` |
-| 配置文件 | kebab-case | `tailwind.config.js` |
+| 类别      | 规范       | 示例                 |
+| --------- | ---------- | -------------------- |
+| 组件文件  | PascalCase | `DataMonitoring.tsx` |
+| Hook 文件 | camelCase  | `useI18n.ts`         |
+| 工具函数  | camelCase  | `formatDate.ts`      |
+| 样式文件  | kebab-case | `global-styles.css`  |
+| 配置文件  | kebab-case | `tailwind.config.js` |
 
 ### 4.3 ESLint + Prettier
 
@@ -297,11 +296,11 @@ npx playwright test
 
 ### 5.3 覆盖率目标
 
-| 层级 | 目标 | 工具 |
-|------|------|------|
-| 单元测试 | >= 90% | Vitest + Jest |
-| 组件测试 | >= 80% | Storybook + Vitest |
-| E2E 测试 | 核心流程 | Playwright |
+| 层级     | 目标     | 工具               |
+| -------- | -------- | ------------------ |
+| 单元测试 | >= 90%   | Vitest + Jest      |
+| 组件测试 | >= 80%   | Storybook + Vitest |
+| E2E 测试 | 核心流程 | Playwright         |
 
 ---
 
@@ -323,12 +322,12 @@ flowchart LR
 
 ### 6.2 部署策略
 
-| 环境 | 方式 | 触发条件 |
-|------|------|----------|
-| 开发 | `pnpm dev` | 本地启动 |
-| 预览 | Vercel Preview | PR 创建 |
-| 测试 | Docker Compose | 手动触发 |
-| 生产 | K8s 滚动更新 | main 分支推送 |
+| 环境 | 方式           | 触发条件      |
+| ---- | -------------- | ------------- |
+| 开发 | `pnpm dev`     | 本地启动      |
+| 预览 | Vercel Preview | PR 创建       |
+| 测试 | Docker Compose | 手动触发      |
+| 生产 | K8s 滚动更新   | main 分支推送 |
 
 ---
 
@@ -366,10 +365,34 @@ flowchart LR
 
 ---
 
+## 8. Next.js 16 升级要点（2026-11-18）
+
+### 8.1 破坏性变更
+
+| 变更                                   | 处理方式                                                            |
+| -------------------------------------- | ------------------------------------------------------------------- |
+| `next dev --turbo`                     | Turbopack 已默认启用，脚本改为 `next dev`                           |
+| `next lint` 移除                       | 脚本改为 `eslint .`，修复用 `pnpm lint:fix`                         |
+| `next.config.mjs` 的 `eslint` 字段失效 | 已移除，ESLint 由 CI 独立任务执行                                   |
+| `pages/` 与 `app/` 必须同级            | `src/pages/emotion-sound.tsx` 已迁移到 `app/emotion-sound/page.tsx` |
+| Node.js 最低 20.9                      | CI 与 Dockerfile 统一 Node 22                                       |
+
+### 8.2 依赖与安全
+
+- 包管理器统一为 **pnpm 10.17.0**（`packageManager` 字段锁定），CI / Vercel / Docker 均使用 `pnpm install --frozen-lockfile`
+- `eslint-config-next` 与 Next 主版本同步；补齐 `@eslint/js`、`@next/eslint-plugin-next` 显式依赖
+- `pnpm audit` 已纳入 CI（`--audit-level=high`）；已知例外：`CVE-2026-112366`（picomatch ReDoS，暂无修复版本，仅影响构建期 glob 展开）通过 `pnpm-workspace.yaml` 的 `auditConfig.ignoreCves` 记录并忽略
+
+### 8.3 CI 门禁
+
+`pnpm lint` → `tsc --noEmit` → `pnpm test:ci` → `pnpm audit` → `pnpm build` 全部通过后方可合并。
+
+---
+
 <div align="center">
 
 > **「YYC³ · 言启千行代码，语枢万物智能」**
 >
-> *© 2025-2026 YYC³ Team. All Rights Reserved.*
+> _© 2025-2026 YYC³ Team. All Rights Reserved._
 
 </div>

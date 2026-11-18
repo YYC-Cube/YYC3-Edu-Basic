@@ -1,9 +1,9 @@
 <div align="center">
   <img src="public/Family-001.png" alt="YYC³ Family" width="600" />
 
-  # YYC³（YanYuCloudCube）智能教育平台
+# YYC³（YanYuCloudCube）智能教育平台
 
-  > **言启千行代码 · 语枢万物智能**
+> **言启千行代码 · 语枢万物智能**
 
   <div align="center">
     <a href="#">
@@ -24,7 +24,7 @@
   </div>
 
   <div align="center">
-    <img src="https://img.shields.io/badge/Next.js-15.5-000000.svg?logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/Next.js-16.4-000000.svg?logo=next.js&logoColor=white" alt="Next.js" />
     <img src="https://img.shields.io/badge/React-19.2-61DAFB.svg?logo=react&logoColor=white" alt="React" />
     <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6.svg?logo=typescript&logoColor=white" alt="TypeScript" />
     <img src="https://img.shields.io/badge/Pnpm-10.x-F69220.svg?logo=pnpm&logoColor=white" alt="pnpm" />
@@ -33,24 +33,24 @@
     <img src="https://img.shields.io/badge/shadcn/ui-latest-000000.svg?logo=shadcnui&logoColor=white" alt="shadcn/ui" />
     <img src="https://img.shields.io/badge/Zustand-5.0-443E38.svg?logo=react&logoColor=white" alt="Zustand" />
     <img src="https://img.shields.io/badge/Framer_Motion-12.4-0055FF.svg?logo=framer&logoColor=white" alt="Framer Motion" />
-    <img src="https://img.shields.io/badge/Vitest-3.2-6E9F18.svg?logo=vitest&logoColor=white" alt="Vitest" />
-    <img src="https://img.shields.io/badge/Storybook-9.1-FF4785.svg?logo=storybook&logoColor=white" alt="Storybook" />
+    <img src="https://img.shields.io/badge/Vitest-5.1-6E9F18.svg?logo=vitest&logoColor=white" alt="Vitest" />
+    <img src="https://img.shields.io/badge/Storybook-10.6-FF4785.svg?logo=storybook&logoColor=white" alt="Storybook" />
   </div>
 
   <br />
 
-  > ***YanYuCloudCube***
-  > *言启象限 | 语枢未来*
-  > ***Words Initiate Quadrants, Language Serves as Core for Future***
-  > *万象归元于云枢 | 深栈智启新纪元*
-  > ***All things converge in cloud pivot; Deep stacks ignite a new era of intelligence***
+> **_YanYuCloudCube_**
+> _言启象限 | 语枢未来_
+> **_Words Initiate Quadrants, Language Serves as Core for Future_**
+> _万象归元于云枢 | 深栈智启新纪元_
+> **_All things converge in cloud pivot; Deep stacks ignite a new era of intelligence_**
 
-  ---
+---
 
-  **五高架构**：高可用 · 高性能 · 高安全 · 高扩展 · 高智能
-  **五标体系**：标准化 · 规范化 · 自动化 · 可视化 · 智能化
-  **五化转型**：流程化 · 数字化 · 生态化 · 工具化 · 服务化
-  **五维评估**：时间维 · 空间维 · 属性维 · 事件维 · 关联维
+**五高架构**：高可用 · 高性能 · 高安全 · 高扩展 · 高智能
+**五标体系**：标准化 · 规范化 · 自动化 · 可视化 · 智能化
+**五化转型**：流程化 · 数字化 · 生态化 · 工具化 · 服务化
+**五维评估**：时间维 · 空间维 · 属性维 · 事件维 · 关联维
 
 </div>
 
@@ -58,7 +58,7 @@
 
 ## 📋 项目概览
 
-YYC³（YanYuCloudCube）智能教育平台是基于 `Next.js 15 + React 19 + shadcn/ui + Radix UI + pnpm` 技术栈打造的下一代 AI 驱动教育解决方案。平台深度融入「五高五标五化五维」核心机制，提供个性化、高效、智能的学习体验。
+YYC³（YanYuCloudCube）智能教育平台是基于 `Next.js 16 + React 19 + shadcn/ui + Radix UI + pnpm` 技术栈打造的下一代 AI 驱动教育解决方案。平台深度融入「五高五标五化五维」核心机制，提供个性化、高效、智能的学习体验。
 
 ### 核心特性
 
@@ -103,7 +103,7 @@ YYC³（YanYuCloudCube）智能教育平台是基于 `Next.js 15 + React 19 + sh
 ├─────────────────────────────────────────────────────────────────────────┤
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
 │  │  PC Web 端   │  │  PWA 离线端  │  │  移动 H5 端  │  │ 桌面客户端  │  │
-│  │  Next.js 15  │  │  Vite+React  │  │  响应式布局  │  │  Tauri/Elect │  │
+│  │  Next.js 16  │  │  Vite+React  │  │  响应式布局  │  │  Tauri/Elect │  │
 │  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘  │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                        业务逻辑层 · Business Logic                         │
@@ -132,20 +132,20 @@ YYC³（YanYuCloudCube）智能教育平台是基于 `Next.js 15 + React 19 + sh
 
 ## 🛠️ 技术栈
 
-| 层级 | 技术 | 版本 | 说明 |
-|------|------|------|------|
-| **框架** | Next.js | 15.5.20 | React 全栈框架，App Router |
-| **UI 引擎** | React | 19.2.7 | 最新稳定版并发渲染 |
-| **语言** | TypeScript | 5.9.2 | 严格模式类型安全 |
-| **样式** | Tailwind CSS | 3.4.17 | 原子化 CSS 框架 |
-| **组件库** | shadcn/ui + Radix UI | Latest | 无障碍原语组件 |
-| **动画** | Framer Motion | 12.42.2 | 声明式动画库 |
-| **状态管理** | Zustand | 5.0.14 | 轻量响应式状态 |
-| **表单** | React Hook Form + Zod | 7.81 / 3.25 | 类型安全表单方案 |
-| **图表** | Recharts | 2.15.4 | React 图表库 |
-| **测试** | Vitest + Storybook | 3.2 / 9.1 | 单元测试 + 组件探索 |
-| **包管理** | pnpm | 10.x | 高性能包管理器 |
-| **部署** | Docker + Kubernetes | - | 容器化编排部署 |
+| 层级         | 技术                  | 版本       | 说明                       |
+| ------------ | --------------------- | ---------- | -------------------------- |
+| **框架**     | Next.js               | 16.4.6     | React 全栈框架，App Router |
+| **UI 引擎**  | React                 | 19.2.7     | 最新稳定版并发渲染         |
+| **语言**     | TypeScript            | 5.9.2      | 严格模式类型安全           |
+| **样式**     | Tailwind CSS          | 3.4.17     | 原子化 CSS 框架            |
+| **组件库**   | shadcn/ui + Radix UI  | Latest     | 无障碍原语组件             |
+| **动画**     | Framer Motion         | 12.42.2    | 声明式动画库               |
+| **状态管理** | Zustand               | 5.0.14     | 轻量响应式状态             |
+| **表单**     | React Hook Form + Zod | 7.81 / 4.6 | 类型安全表单方案           |
+| **图表**     | Recharts              | 2.15.4     | React 图表库               |
+| **测试**     | Vitest + Storybook    | 5.1 / 10.6 | 单元测试 + 组件探索        |
+| **包管理**   | pnpm                  | 10.x       | 高性能包管理器             |
+| **部署**     | Docker + Kubernetes   | -          | 容器化编排部署             |
 
 ---
 
@@ -210,8 +210,8 @@ YYC3-Edu-Basic/
 
 ### 环境要求
 
-- **Node.js** >= 18.18
-- **pnpm** >= 9.0（推荐 10.x）
+- **Node.js** >= 20.9
+- **pnpm** >= 10.0（推荐 10.17+）
 - **Docker**（可选，用于容器化部署）
 
 ### 安装与运行
@@ -266,13 +266,13 @@ docker compose logs -f
 
 ### 🔍 全局审核系统
 
-| 维度 | 说明 | 状态 |
-|------|------|------|
-| 代码质量 | ESLint + TypeScript Strict | ✅ A+ |
-| 性能分析 | Lighthouse + Web Vitals | ✅ 达标 |
-| 安全扫描 | 依赖审计 + 代码扫描 | ✅ 安全 |
-| 可访问性 | WCAG 2.1 AA 标准 | ✅ 达标 |
-| 依赖管理 | 版本合规 + 许可审查 | ✅ 合规 |
+| 维度     | 说明                       | 状态    |
+| -------- | -------------------------- | ------- |
+| 代码质量 | ESLint + TypeScript Strict | ✅ A+   |
+| 性能分析 | Lighthouse + Web Vitals    | ✅ 达标 |
+| 安全扫描 | 依赖审计 + 代码扫描        | ✅ 安全 |
+| 可访问性 | WCAG 2.1 AA 标准           | ✅ 达标 |
+| 依赖管理 | 版本合规 + 许可审查        | ✅ 合规 |
 
 ### 🎨 可视化编程平台
 
@@ -308,11 +308,11 @@ docker compose logs -f
 
 ### 部署策略
 
-| 策略 | 描述 | 适用场景 |
-|------|------|----------|
-| 滚动更新 | 逐步替换 Pod 实例 | 常规发布 |
-| 金丝雀发布 | 5% → 25% → 50% → 100% | 重大功能上线 |
-| 蓝绿部署 | 两套环境无缝切换 | 关键业务迁移 |
+| 策略          | 描述                  | 适用场景       |
+| ------------- | --------------------- | -------------- |
+| 滚动更新      | 逐步替换 Pod 实例     | 常规发布       |
+| 金丝雀发布    | 5% → 25% → 50% → 100% | 重大功能上线   |
+| 蓝绿部署      | 两套环境无缝切换      | 关键业务迁移   |
 | Argo Rollouts | 渐进式交付 + 自动回滚 | 精细化发布管控 |
 
 ---
@@ -323,11 +323,11 @@ docker compose logs -f
 
 ## 📬 联系我们
 
-| 渠道 | 信息 |
-|------|------|
-| **📧 Email** | admin@0379.email |
-| **👥 团队** | YanYuCloudCube Team |
-| **🌐 官网** | [https://yyc3.cloud](https://yyc3.cloud) |
+| 渠道         | 信息                                     |
+| ------------ | ---------------------------------------- |
+| **📧 Email** | admin@0379.email                         |
+| **👥 团队**  | YanYuCloudCube Team                      |
+| **🌐 官网**  | [https://yyc3.cloud](https://yyc3.cloud) |
 
 ---
 
@@ -335,10 +335,10 @@ docker compose logs -f
 
 > **「YYC³ · 言启千行代码，语枢万物智能」**
 >
-> ***Words Initiate Thousands of Lines of Code, Language Pivots the Intelligence of All Things***
+> **_Words Initiate Thousands of Lines of Code, Language Pivots the Intelligence of All Things_**
 >
 > **© 2025-2026 YYC³ Team. All Rights Reserved.**
 >
-> *万象归元于云枢 | 深栈智启新纪元*
+> _万象归元于云枢 | 深栈智启新纪元_
 
 </div>

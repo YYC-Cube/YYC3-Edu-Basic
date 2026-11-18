@@ -1,12 +1,12 @@
 // ESLint v9配置文件
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import nextPlugin from '@next/eslint-plugin-next';
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import nextPlugin from "@next/eslint-plugin-next";
 
 // 尝试导入Next.js的核心配置，如果可用
 const nextConfig = async () => {
   try {
-    const { configs } = await import('eslint-config-next');
+    const { configs } = await import("eslint-config-next");
     return configs;
   } catch (error) {
     return { coreWebVitals: {}, typescript: {} };
@@ -20,21 +20,21 @@ export default [
     // 统一为所有文件声明常用全局变量，避免 no-undef
     languageOptions: {
       globals: {
-        console: 'readonly',
-        process: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
+        console: "readonly",
+        process: "readonly",
+        window: "readonly",
+        document: "readonly",
+        navigator: "readonly",
       },
     },
   },
   {
     plugins: {
-      '@next/next': nextPlugin,
+      "@next/next": nextPlugin,
     },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -42,44 +42,53 @@ export default [
           jsx: true,
         },
         ecmaVersion: 2022,
-        sourceType: 'module',
+        sourceType: "module",
       },
       globals: {
-        console: 'readonly',
-        process: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
+        console: "readonly",
+        process: "readonly",
+        window: "readonly",
+        document: "readonly",
+        navigator: "readonly",
       },
     },
   },
   {
-    files: ['**/*.js', '**/*.jsx'],
+    files: ["**/*.js", "**/*.jsx"],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: 'module',
+      sourceType: "module",
       globals: {
-        console: 'readonly',
-        process: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
+        console: "readonly",
+        process: "readonly",
+        window: "readonly",
+        document: "readonly",
+        navigator: "readonly",
       },
     },
   },
   {
     ignores: [
-      'node_modules/',
-      '.next/',
-      'dist/',
-      'coverage/',
-      '.storybook/',
-      'out/',
-      'swc/',
-      'public/',
-      '*.config.*',
-      '*.setup.*',
-      '*.sh',
+      "node_modules/",
+      ".next/",
+      "dist/",
+      "coverage/",
+      ".storybook/",
+      "out/",
+      "swc/",
+      "public/",
+      "docs/",
+      "miniprogram/",
+      "plugins/",
+      "deploy/",
+      "nginx/",
+      "config/",
+      "*.config.*",
+      "*.setup.*",
+      "*.sh",
+      "next-env.d.ts",
+      "global-audit-cli.js",
+      "run-global-audit.ts",
     ],
   },
 ];

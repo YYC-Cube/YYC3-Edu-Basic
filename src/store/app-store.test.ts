@@ -1,36 +1,52 @@
-// src/store/app-store.test.ts
-import { useAppStore } from './app-store';
-import { act } from '@testing-library/react';
-import { ModuleId } from '@/src/core/module-system';
+import { act } from "@testing-library/react";
+import { useAppStore, type UserProfile } from "./app-store";
 
-describe('AppStore Zustand Store', () => {
-  it('should have correct initial state', () => {
-    const { activeModule, accessibility } = useAppStore.getState();
+describe("AppStore Zustand Store", () => {
+  it("should have correct initial state", () => {
+    const { user, isAuthenticated, theme, language } = useAppStore.getState();
 
-    // 验证 UI Slice 的初始状态
-    expect(activeModule).toBe(ModuleId.AUDIT);
-
-    // 验证 Accessibility Slice 的初始状态
-    expect(accessibility.fontSize).toBe(16);
-    expect(accessibility.highContrast).toBe(false);
+    expect(user).toBeNull();
+    expect(isAuthenticated).toBe(false);
+    expect(theme).toBe("auto");
+    expect(language).toBe("zh-CN");
   });
 
-  it('should correctly update the active module', () => {
-    // 使用 act 来包装状态更新
+  it("should set user and update authentication", () => {
+    const user: UserProfile = {
+      id: "1",
+      name: "YYC³",
+      email: "admin@0379.email",
+    };
+
     act(() => {
-      useAppStore.getState().setActiveModule(ModuleId.EMOTION);
+      useAppStore.getState().setUser(user);
     });
 
-    expect(useAppStore.getState().activeModule).toBe(ModuleId.EMOTION);
+    expect(useAppStore.getState().user).toEqual(user);
+    expect(useAppStore.getState().isAuthenticated).toBe(true);
   });
 
-  it('should correctly update accessibility settings', () => {
+  it("should toggle theme", () => {
+    const before = useAppStore.getState().theme;
+
     act(() => {
-      useAppStore.getState().updateAccessibility({ fontSize: 20, highContrast: true });
+      useAppStore.getState().toggleTheme();
     });
 
-    const { accessibility } = useAppStore.getState();
-    expect(accessibility.fontSize).toBe(20);
-    expect(accessibility.highContrast).toBe(true);
+    expect(useAppStore.getState().theme).not.toBe(before);
+  });
+
+  it("should update accessibility settings", () => {
+    act(() => {
+      useAppStore.getState().updateAccessibility({
+        fontSize: 20,
+        highContrast: true,
+      });
+    });
+
+    expect(useAppStore.getState().accessibility).toEqual({
+      fontSize: 20,
+      highContrast: true,
+    });
   });
 });

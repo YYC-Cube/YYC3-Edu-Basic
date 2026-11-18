@@ -1,41 +1,51 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 // 修正 Button 组件导入路径（原错误1：找不到模块，假设实际路径为../ui/button，可根据项目结构调整）
-import { Button } from "@/components/ui/button"
-import { KnowledgeExplorer } from "./KnowledgeExplorer"
-import { SubjectFolderManager, LearningPathPlanner } from "./SubjectManager"
-import { InteractiveTutorial, AchievementGallery } from "./TutorialSystem"
-import { GamificationSystem, SmartRecommendation, MultiLanguageSupport } from "./AdvancedFeatures"
+import { Button } from "@/components/ui/button";
+import { KnowledgeExplorer } from "../education/KnowledgeExplorer";
+import {
+  SubjectFolderManager,
+  LearningPathPlanner,
+} from "../education/SubjectManager";
+import {
+  InteractiveTutorial,
+  AchievementGallery,
+} from "../education/TutorialSystem";
+import {
+  GamificationSystem,
+  SmartRecommendation,
+  MultiLanguageSupport,
+} from "../education/AdvancedFeatures";
 
 // 1. 定义明确的教育配置类型（解决原错误2-5、7-11：unknown类型无法访问属性）
 interface EducationConfig {
-  mode: "programming" | "math" | "language" // 教育类型，限定可选值
-  level: "beginner" | "intermediate" | "advanced" // 教育级别
-  identity: "student" | "teacher" // 用户身份
+  mode: "programming" | "math" | "language"; // 教育类型，限定可选值
+  level: "beginner" | "intermediate" | "advanced"; // 教育级别
+  identity: "student" | "teacher"; // 用户身份
 }
 
 // 教育功能完整弹窗
 export const EducationFeatureModal: React.FC<{
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
   // 2. 将 educationConfig 类型从 unknown 改为定义好的接口
-  educationConfig: EducationConfig
+  educationConfig: EducationConfig;
 }> = ({ isOpen, onClose, educationConfig }) => {
-  const [activeTab, setActiveTab] = useState('knowledge')
+  const [activeTab, setActiveTab] = useState("knowledge");
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const tabs = [
-    { id: 'knowledge', label: '📚 知识探索', component: KnowledgeExplorer },
-    { id: 'subjects', label: '📁 学科管理', component: SubjectFolderManager },
-    { id: 'path', label: '🛣️ 学习路径', component: LearningPathPlanner },
-    { id: 'tutorial', label: '🎓 互动教程', component: InteractiveTutorial },
-    { id: 'gallery', label: '🎨 作品展示', component: AchievementGallery },
-    { id: 'game', label: '🎮 游戏化', component: GamificationSystem },
-    { id: 'recommend', label: '🎯 智能推荐', component: SmartRecommendation },
-    { id: 'language', label: '🌍 多语言', component: MultiLanguageSupport }
-  ]
+    { id: "knowledge", label: "📚 知识探索", component: KnowledgeExplorer },
+    { id: "subjects", label: "📁 学科管理", component: SubjectFolderManager },
+    { id: "path", label: "🛣️ 学习路径", component: LearningPathPlanner },
+    { id: "tutorial", label: "🎓 互动教程", component: InteractiveTutorial },
+    { id: "gallery", label: "🎨 作品展示", component: AchievementGallery },
+    { id: "game", label: "🎮 游戏化", component: GamificationSystem },
+    { id: "recommend", label: "🎯 智能推荐", component: SmartRecommendation },
+    { id: "language", label: "🌍 多语言", component: MultiLanguageSupport },
+  ];
 
-  const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component
+  const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -59,13 +69,13 @@ export const EducationFeatureModal: React.FC<{
             <div className="p-4">
               <h3 className="font-semibold text-gray-700 mb-4">功能模块</h3>
               <div className="space-y-2">
-                {tabs.map(tab => (
+                {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-700"
                     }`}
                     onClick={() => setActiveTab(tab.id)}
                   >
@@ -81,7 +91,10 @@ export const EducationFeatureModal: React.FC<{
               <div className="text-sm text-blue-700 space-y-1">
                 <div>教育类型: {educationConfig.mode}</div>
                 <div>教育级别: {educationConfig.level}</div>
-                <div>身份: {educationConfig.identity === 'student' ? '学生' : '教师'}</div>
+                <div>
+                  身份:{" "}
+                  {educationConfig.identity === "student" ? "学生" : "教师"}
+                </div>
               </div>
             </div>
           </div>
@@ -90,14 +103,14 @@ export const EducationFeatureModal: React.FC<{
           <div className="flex-1 overflow-y-auto">
             <div className="p-6">
               {ActiveComponent && (
-                <ActiveComponent 
+                <ActiveComponent
                   // 3. 补充缺失的 level 属性（原错误6：SubjectFolderManager 等组件要求必须传 level）
                   level={educationConfig.level}
                   educationLevel={educationConfig.level}
                   mode={educationConfig.mode}
                   userId="current-user"
-                  isStudent={educationConfig.identity === 'student'}
-                  isTeacher={educationConfig.identity === 'teacher'}
+                  isStudent={educationConfig.identity === "student"}
+                  isTeacher={educationConfig.identity === "teacher"}
                   subject="编程"
                   userLevel={educationConfig.level}
                   learningStyle="视觉型"
@@ -116,43 +129,44 @@ export const EducationFeatureModal: React.FC<{
             <Button variant="outline" onClick={onClose}>
               关闭
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              保存设置
-            </Button>
+            <Button className="bg-blue-600 hover:bg-blue-700">保存设置</Button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // 教育功能快速入口
 export const EducationQuickEntry: React.FC<{
   // 4. 同步修改此处的 educationConfig 类型
-  educationConfig: EducationConfig
-  onOpenModal: () => void
+  educationConfig: EducationConfig;
+  onOpenModal: () => void;
 }> = ({ educationConfig, onOpenModal }) => {
   const quickActions = [
-    { icon: '📝', label: '创建笔记', color: 'bg-blue-500' },
-    { icon: '🧠', label: '思维导图', color: 'bg-purple-500' },
-    { icon: '📊', label: '制作PPT', color: 'bg-green-500' },
-    { icon: '🎯', label: '学习任务', color: 'bg-orange-500' }
-  ]
+    { icon: "📝", label: "创建笔记", color: "bg-blue-500" },
+    { icon: "🧠", label: "思维导图", color: "bg-purple-500" },
+    { icon: "📊", label: "制作PPT", color: "bg-green-500" },
+    { icon: "🎯", label: "学习任务", color: "bg-orange-500" },
+  ];
 
   return (
     <div className="bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg p-4 mb-4">
       <div className="flex justify-between items-center mb-3">
         <h3 className="font-semibold text-gray-800">🎓 教育功能快速入口</h3>
-        <Button 
-          size="sm" 
+        <Button
+          size="sm"
           onClick={onOpenModal}
           className="bg-blue-600 hover:bg-blue-700"
         >
           查看全部功能
         </Button>
       </div>
-      <div className="text-xs text-gray-600 mb-2">模式：{educationConfig.mode} · 学段：{educationConfig.level} · 身份：{educationConfig.identity}</div>
-      
+      <div className="text-xs text-gray-600 mb-2">
+        模式：{educationConfig.mode} · 学段：{educationConfig.level} · 身份：
+        {educationConfig.identity}
+      </div>
+
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {quickActions.map((action, idx) => (
           <button
@@ -166,5 +180,5 @@ export const EducationQuickEntry: React.FC<{
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
