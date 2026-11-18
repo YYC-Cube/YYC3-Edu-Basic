@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # 主应用服务
@@ -45,7 +45,15 @@ services:
       - mysql_data:/var/lib/mysql
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-p${MYSQL_ROOT_PASSWORD}"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "127.0.0.1",
+          "-p${MYSQL_ROOT_PASSWORD}",
+        ]
       interval: 30s
       timeout: 5s
       retries: 10
@@ -105,22 +113,6 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
-    restart: unless-stopped
-    networks:
-      - education-network
-
-  # 个性化学习路径 Python 服务
-  learning-service:
-    image: python:3.11-slim
-    container_name: learning-service
-    working_dir: /app
-    volumes:
-      - ./docs/学习组件:/app
-    command: sh -c "python -m pip install --no-cache-dir -r /app/requirements.txt && uvicorn api.main:app --host 0.0.0.0 --port 8000"
-    environment:
-      - PYTHONUNBUFFERED=1
-    ports:
-      - "8000:8000"
     restart: unless-stopped
     networks:
       - education-network

@@ -23,11 +23,7 @@
     "ollama:pull:llama3.1-8b": "ollama pull llama3.1:8b",
     "ollama:pull:qwen2-7b": "ollama pull qwen2:7b",
     "stack:up:ollama": "docker compose up -d ollama",
-    "stack:down:ollama": "docker compose down ollama",
-    "learning:serve": "uvicorn docs.学习组件.api.main:app --host 0.0.0.0 --port 8000",
-    "learning:docker:up": "docker compose up -d learning-service",
-    "learning:docker:down": "docker compose stop learning-service && docker compose rm -f learning-service",
-    "learning:docker:logs": "docker compose logs -f --tail=100 learning-service"
+    "stack:down:ollama": "docker compose down ollama"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs}": [
